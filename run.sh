@@ -17,7 +17,7 @@ cat > /etc/fluent/fluent.conf <<EOF
 <match docker.all>
   type swift
 
-  auth_url $OS_AUTH_URL
+  auth_url $OS_AUTH_URL/tokens
   auth_user $OS_TENANT_NAME:$OS_USERNAME
   auth_api_key $OS_PASSWORD
   swift_container docker_logs
