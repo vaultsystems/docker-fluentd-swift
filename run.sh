@@ -31,4 +31,4 @@ cat > /etc/fluent/fluent.conf <<EOF
   time_slice_wait 10m
 </match>
 EOF
-/usr/local/bin/fluentd -c /etc/fluent/fluent.conf
+fluentd -c /etc/fluent/fluent.conf
