@@ -1,4 +1,8 @@
-FROM kiyoto/fluentd:0.10.56-2.1.1
+FROM alpine
+RUN apk --update add ruby bash ruby-dev libxslt libxml2
+RUN apk add --virtual build-dependencies build-base libxml2-dev libxslt-dev libiconv-dev \
+    && echo ":ssl_verify_mode: 0" > ~/.gemrc \
+    && gem install fluentd fluent-plugin-record-reformer fluent-plugin-swift --no-rdoc --no-ri -- --use-system-libraries \
+    && apk del build-dependencies
 ADD run.sh /opt/
-RUN ["/usr/local/bin/gem", "install", "fluent-plugin-record-reformer", "fluent-plugin-swift", "--no-rdoc", "--no-ri"]
 ENTRYPOINT ["/opt/run.sh"]
