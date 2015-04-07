@@ -11,7 +11,7 @@ cat > /etc/fluent/fluent.conf <<EOF
 </source>
 <match docker.var.lib.docker.containers.*.*.log>
   type record_reformer
-  container_id ${tag_parts[5]}
+  container_id \${tag_parts[5]}
   tag docker.all
 </match>
 <match docker.all>
