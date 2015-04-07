@@ -18,7 +18,8 @@ cat > /etc/fluent/fluent.conf <<EOF
   type swift
 
   auth_url $OS_AUTH_URL/tokens
-  auth_user $OS_TENANT_NAME:$OS_USERNAME
+  auth_user $OS_USERNAME
+  auth_tenant $OS_TENANT_NAME
   auth_api_key $OS_PASSWORD
   swift_container docker_logs
   swift_object_key_format %{path}%{time_slice}_%{index}.%{file_extension}
