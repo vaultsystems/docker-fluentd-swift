@@ -1,4 +1,4 @@
 # docker-fluentd-swift
-collect logs from docker containers and upload them to swift container
+run fluentd with a couple of plugins
 
-    docker run -d -e "OS_AUTH_URL={{ os_auth_url }}" -e "OS_TENANT_NAME={{ os_tenant_name }}" -e "OS_USERNAME={{ os_username }}" -e "OS_PASSWORD={{ os_password }}" -v /var/lib/docker/containers:/var/lib/docker/containers --name fluentd-swift vault/fluentd-swift
+    docker run -d -v /mnt/fluent:/etc/fluent -p 24224:24224 -p 24224:24224/udp -p 514:514 -p 514:514/udp --name fluentd-swift vault/fluentd-swift
