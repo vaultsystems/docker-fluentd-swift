@@ -1,4 +1,4 @@
-FROM alpine
+FROM alpine:latest
 RUN apk --update add ruby ruby-dev libxslt libxml2
 RUN apk --update add --virtual build-dependencies build-base libxml2-dev libxslt-dev tzdata \
     && echo ":ssl_verify_mode: 0" > ~/.gemrc \
